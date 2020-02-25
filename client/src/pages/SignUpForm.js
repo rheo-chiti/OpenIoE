@@ -8,6 +8,7 @@ class SignUpForm extends Component {
         this.state = {
             email: '',
             password: '',
+            confirm: '',
             name: '',
             hasAgreed: false
         };
@@ -46,6 +47,11 @@ class SignUpForm extends Component {
                 <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleChange} />
               </div>
               <div className="FormField">
+                <label className="FormField__Label" htmlFor="confirm">Confirm Password</label>
+                <input type="password" id="confirm" className="FormField__Input" placeholder="Confirm password" name="confirm" value={this.state.confirm} onChange={this.handleChange} />
+              </div>
+              {(this.state.password !== this.state.confirm) && <h5>Passwords don't match</h5>}
+              <div className="FormField">
                 <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
                 <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email" value={this.state.email} onChange={this.handleChange} />
               </div>
@@ -57,7 +63,8 @@ class SignUpForm extends Component {
               </div>
 
               <div className="FormField">
-                  <button className="FormField__Button mr-20">Sign Up</button> <Link to="/sign-in" className="FormField__Link">I'm already member</Link>
+                  <button className="FormField__Button mr-20">Sign Up</button> 
+                  {/* <Link to="/sign-in" className="FormField__Link">I'm already member</Link> */}
               </div>
             </form>
           </div>
